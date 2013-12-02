@@ -27,17 +27,5 @@ Main Goals:
 - [x] Create a java documented Sample Project;
 - [ ] Learn How to create .md pages at GitHub...
 - [ ] Convert python to a real Blender exporter plugin;
-- [ ] Add Support to Packed Textures (Blender Exporter);
 - [ ] Add Android  (JPCT-AE) support;
-
-What is Working:
-
-* 3D Objects Export/Import
-* Textures Export/Import (just unpacked!)
-* Instances Export/Import (xml)
-* Camera Export/Import (just one)
-* Point Lights Export/Import (position, distance and color)
-* Ambient Light Export/Import
-* Actors Export/Import
-
  
