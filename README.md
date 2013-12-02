@@ -1,6 +1,8 @@
 JPCTBlend
 =========
 
+![ScreenShot](/web_images/jpctblend.png)
+
 JPCTBlend: A Simple JPCT (and AE) Blender Integration Layer. This is a simple project that aims to provide an easy way to use blender as a SandBox to create 3D worlds for JPCT Engine. E.g:
 
 given a blender scene:
