@@ -28,6 +28,7 @@ Main Goals:
 - [ ] Learn How to create .md pages at GitHub...
 - [ ] Convert python to a real Blender exporter plugin;
 - [ ] Add Support to Packed Textures (Blender Exporter);
+- [ ] Export Blender Texture Flags (E.g: Alpha);
 - [ ] Add Android  (JPCT-AE) support;
 
 What is Working:
