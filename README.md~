@@ -16,6 +16,7 @@ scn = new JPCTBlendScene("media/scene_test.xml", world);
 result:
 ![ScreenShot](/screenshots/screen_jpct.jpg)
 
+asd
 
 Main Goals:
 
