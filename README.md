@@ -22,18 +22,15 @@ scn = new JPCTBlendScene("media/scene_test.xml", world);
 result:
 ![ScreenShot](/web_images/screen_jpct.jpg)
 
-asd
-
 Main Goals:
 
 - [x] Create initial working python script exporter for Blender;
 - [x] Create initial working java importer for JPCT;
 - [x] Create a java documented Sample Project;
-- [ ] Learn How to create .md pages at GitHub...
+- [ ] Add Android  (JPCT-AE) support;
 - [ ] Convert python to a real Blender exporter plugin;
 - [ ] Add Support to Packed Textures (Blender Exporter);
 - [ ] Export Blender Texture Flags (E.g: Alpha);
-- [ ] Add Android  (JPCT-AE) support;
 
 What is Working:
 
