@@ -27,7 +27,7 @@ Main Goals:
 - [x] Create initial working python script exporter for Blender;
 - [x] Create initial working java importer for JPCT;
 - [x] Create a java documented Sample Project;
-- [ ] Add Android  (JPCT-AE) support;
+- [x] Add Android  (JPCT-AE) support;
 - [ ] Convert python to a real Blender exporter plugin;
 - [ ] Add Support to Packed Textures (Blender Exporter);
 - [ ] Export Blender Texture Flags (E.g: Alpha);
