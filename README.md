@@ -28,12 +28,15 @@ Main Goals:
 - [x] Create initial working java importer for JPCT;
 - [x] Create a java documented Sample Project;
 - [x] Add Android  (JPCT-AE) support;
-- [ ] Convert python to a real Blender exporter plugin;
+- [x] Convert python to a real Blender exporter plugin;
+- [x] Export Blender Texture Flags (png's are loaded with alpha channel);
 - [ ] Add Support to Packed Textures (Blender Exporter);
-- [ ] Export Blender Texture Flags (E.g: Alpha);
+- [ ] Add Support for GLSL Shaders (Blender -> JPCT)
 
 What is Working:
 
+* Blender Exporter
+* Desktop and Android import
 * 3D Objects Export/Import
 * Textures Export/Import (just unpacked!)
 * Instances Export/Import (xml)

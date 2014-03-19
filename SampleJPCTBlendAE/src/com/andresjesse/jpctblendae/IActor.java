@@ -1,7 +1,5 @@
 package com.andresjesse.jpctblendae;
 
-import android.content.res.AssetManager;
-
 import com.threed.jpct.SimpleVector;
 import com.threed.jpct.World;
 

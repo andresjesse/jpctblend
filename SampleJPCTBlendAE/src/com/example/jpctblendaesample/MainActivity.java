@@ -123,7 +123,7 @@ public class MainActivity extends Activity {
 
 				world = new World();
 
-				scn = new JPCTBlendScene("media/scene_test.xml", getAssets(),world);
+				scn = new JPCTBlendScene("media/scenes/sample_scene/sample_scene.xml", getAssets(),world);
 
 				MemoryHelper.compact();
 
@@ -139,14 +139,15 @@ public class MainActivity extends Activity {
 
 		public void onDrawFrame(GL10 gl) {
 			
-			//=============UPDATE ACTORS
-			scn.updateActors();
+			//Update JPCTBlend Scene
+			scn.update();
 
 			fb.clear();
 			world.renderScene(fb);
 			world.draw(fb);
 			fb.display();
 
+			//fps log
 			if (System.currentTimeMillis() - time >= 1000) {
 				Logger.log(fps + "fps");
 				fps = 0;

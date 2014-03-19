@@ -33,9 +33,14 @@ import com.threed.jpct.util.Light;
  * 
  */
 public class JPCTBlendScene {
-	private static final int IMPORTER_VERSION = 1;
+	private static final int IMPORTER_VERSION = 2;
 
 	private boolean active = false;
+	
+	//rotation pivots are reseted in build() method,
+	//they are corrected in first "JPCTBlend.update()"
+	//need to find a better solution for this..
+	private boolean pivotsFixed = false;
 
 	// Scene path (contains scene xml's, "textures" and "meshs" subfolders)
 	private String sceneBasePath;
@@ -110,9 +115,23 @@ public class JPCTBlendScene {
 
 			world.getCamera().setPosition(currentCameraInfo.getPosition());
 			world.getCamera().lookAt(currentCameraInfo.getLookAt());
+
+			// FOV tip, by juan from JPCT forum.
+			// http://www.jpct.net/forum2/index.php/topic,3711.0.html
+			world.getCamera().setFOV(0.914f);
 		}
 
 		active = true;
+	}
+	
+	/**
+	 * According to JPCT forum, the build() method resets pivots,
+	 * i don't know why this causes error in some objects, so you
+	 * need to fix pivots after use a build() or world.buildAllObjects().
+	 */
+	private void fixPivots() {
+		for(Object3D obj : instances)
+			obj.setRotationPivot(new SimpleVector());
 	}
 
 	/**
@@ -232,17 +251,13 @@ public class JPCTBlendScene {
 				String meshFile = getAttrValue("mesh_name", node) + ".3ds";
 
 				Object3D obj = null;
-
-				// If object not loaded: load and use, else: clone and use
-				if (!Object3DManager.getInstance().containsObject3D(meshFile)) {
-					// Configured blender to export one object per file, so
-					// loads just index [0]
-					obj = Loader.load3DS(sceneBasePath + "meshs"
-							+ File.separator + meshFile, 1.0f)[0];
-					Object3DManager.getInstance().putObject3D(meshFile, obj);
-				} else {
-					obj = Object3DManager.getInstance().cloneObject3D(meshFile);
-				}
+				
+				// Configured blender to export one object per file, so
+				// loads just index [0]
+				obj = Loader.load3DS(sceneBasePath + "meshs" + File.separator
+						+ meshFile, 1.0f)[0];
+				
+				Object3DManager.getInstance().putObject3D(meshFile, obj);
 
 				obj.translate(getAttrValueSimpleVector("position", node));
 
@@ -257,7 +272,18 @@ public class JPCTBlendScene {
 				// disabled for now..
 				// obj.scale(getAttrValueSimpleVector("scale", node).x);
 
-				obj.setTexture(getAttrValue("texture", node));
+				String textureName = getAttrValue("texture", node);
+				obj.setTexture(textureName);
+
+				//alpha to "png" textures
+				if (textureName.length() > 3) {
+
+					String ext = getAttrValue("texture", node).substring(
+							textureName.length() - 3, textureName.length());
+
+					if (ext.equals("png"))
+						obj.setTransparency(10);
+				}
 
 				instancesList.add(obj);
 			}
@@ -378,9 +404,13 @@ public class JPCTBlendScene {
 	}
 
 	/**
-	 * Update all actors in the scene by calling the "act" method for each one.
+	 * Update all JPCTBlend objects and fixes rotationPivot after build(); 
+	 * Actors are updated in the scene by calling the "act" method for each one.
 	 */
-	public void updateActors() {
+	public void update() {
+		if(!pivotsFixed)
+			fixPivots();
+			
 		for (IActor actor : actors) {
 			actor.act();
 		}

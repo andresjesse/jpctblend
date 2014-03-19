@@ -1,0 +1,35 @@
+19/03/2014
+GENERAL
+- updated MIT license to current year (2014)
+- updated JPCTBlend to version 2
+- sample scene moved to media/scenes/sample_scene
+- sample actor java class updated to load SampleActor.3ds from media/actors
+- changed camera FOV in jpct (forum tip, thanks!)
+- added changes.txt file to store updates history
+- configured texture loading to set alpha for PNGs (use this format for transparency)
+- added some bushes to show texture transparency
+- changed updateActors() to update()
+
+DESKTOP PROJECT
+- updated Desktop Project Sample to use jpct library to version 1.28 (last)
+- updated Desktop Project Sample to use lwjgl-2.9.1 (comes with jpct 1.28)
+
+ANDROID PROJECT
+- updated Android Project Sample to use jpct-ae library to version 1.28 (last)
+
+BLENDER EXPORTER
+- fixed object and actors rotation issue: -x,y,-z istead of x,y,z (corrects rotation after loading the scene).
+- fixed object export without clean rotation (caused double rotation in previous jpctblend version).
+- python exporter now available as blender plugin (shown in 'Export' menu. Needs to be enabled in user preferences >> addons >> Import-Export).
+
+------------------------------------------------------------------------------
+28/12/2013
+- Added JPCT-AE Support.
+
+------------------------------------------------------------------------------
+30/11/2013
+- First working version.
+
+------------------------------------------------------------------------------
+26/10/2013
+- Project created, initial commit.

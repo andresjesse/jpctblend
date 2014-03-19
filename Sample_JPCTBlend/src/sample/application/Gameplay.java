@@ -45,8 +45,8 @@ public class Gameplay {
 	 * exported from blender.
 	 */
 	private void setupObjects() {
-		scn = new JPCTBlendScene("media/scene_test.xml", world);
-
+		scn = new JPCTBlendScene("media/scenes/sample_scene/sample_scene.xml", world);
+		
 		world.buildAllObjects();
 	}
 
@@ -61,9 +61,8 @@ public class Gameplay {
 
 			startTime = System.currentTimeMillis();//fps control
 
-			
-			
-			scn.updateActors();
+			//Update JPCTBlend Scene
+			scn.update();
 
 			fb.clear(java.awt.Color.BLACK);
 
@@ -72,8 +71,6 @@ public class Gameplay {
 
 			fb.update();
 			fb.displayGLOnly();
-			
-
 			
 			//fps control
 			elapsedTime = System.currentTimeMillis() - startTime;

@@ -28,19 +28,6 @@ public class Object3DManager {
 		loadedObjects = new HashMap<>();
 	}
 
-	public Object3D cloneObject3D(String objName) {
-		if (!containsObject3D(objName))
-			throw new RuntimeException("Can't clone mesh " + objName
-					+ " because it does not exist in Object3DManager.");
-
-		Object3D cloned = getObject3D(objName).cloneObject();
-		cloned.clearRotation();
-		cloned.clearTranslation();
-		cloned.setScale(1);
-
-		return cloned;
-	}
-
 	public boolean containsObject3D(String key) {
 		return loadedObjects.containsKey(key);
 	}
